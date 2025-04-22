@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dự đoán giá đất</title>
+    <title>Land price prediction</title>
     <!-- Thêm Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
@@ -93,57 +93,57 @@
 <body>
 
     <div class="container">
-        <h1>Dự đoán giá đất</h1>
+        <h1>Land price prediction</h1>
         <form method="POST" action="/predict">
             <div class="form-group">
-                <label for="location">Vị trí</label>
+                <label for="location">Location</label>
                 <select name="location" id="location" required>
-                    <option value="" disabled {% if not location %}selected{% endif %}>Chọn vị trí</option>
-                    <option value="Nông thôn" {% if location == 'Nông thôn' %} selected {% endif %}>Nông thôn</option>
-                    <option value="Thành phố" {% if location == 'Thành phố' %} selected {% endif %}>Thành phố</option>
+                    <option value="" disabled {% if not location %}selected{% endif %}>Select</option>
+                    <option value="Nông thôn" {% if location == 'Nông thôn' %} selected {% endif %}>Countryside</option>
+                    <option value="Thành phố" {% if location == 'Thành phố' %} selected {% endif %}>City</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="direction">Hướng</label>
+                <label for="direction">Direction</label>
                 <select name="direction" id="direction" required>
-                    <option value="" disabled {% if not direction %}selected{% endif %}>Chọn hướng</option>
-                    <option value="Tây" {% if direction == 'Tây' %} selected {% endif %}>Tây</option>
-                    <option value="Nam" {% if direction == 'Nam' %} selected {% endif %}>Nam</option>
-                    <option value="Đông" {% if direction == 'Đông' %} selected {% endif %}>Đông</option>
-                    <option value="Bắc" {% if direction == 'Bắc' %} selected {% endif %}>Bắc</option>
+                    <option value="" disabled {% if not direction %}selected{% endif %}>Select</option>
+                    <option value="Tây" {% if direction == 'Tây' %} selected {% endif %}>West</option>
+                    <option value="Nam" {% if direction == 'Nam' %} selected {% endif %}>South</option>
+                    <option value="Đông" {% if direction == 'Đông' %} selected {% endif %}>East</option>
+                    <option value="Bắc" {% if direction == 'Bắc' %} selected {% endif %}>North</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="amenities">Tiện ích</label>
+                <label for="amenities">Utilities</label>
                 <select name="amenities" id="amenities" required>
-                    <option value="" disabled {% if not amenities %}selected{% endif %}>Chọn tiện ích</option>
-                    <option value="Đầy đủ" {% if amenities == 'Đầy đủ' %} selected {% endif %}>Đầy đủ</option>
-                    <option value="Thiếu" {% if amenities == 'Thiếu' %} selected {% endif %}>Thiếu</option>
+                    <option value="" disabled {% if not amenities %}selected{% endif %}>Select</option>
+                    <option value="Đầy đủ" {% if amenities == 'Đầy đủ' %} selected {% endif %}>Full</option>
+                    <option value="Thiếu" {% if amenities == 'Thiếu' %} selected {% endif %}>Insufficient</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="infrastructure">Cơ sở hạ tầng</label>
+                <label for="infrastructure">Infrastructure</label>
                 <select name="infrastructure" id="infrastructure" required>
-                    <option value="" disabled {% if not infrastructure %}selected{% endif %}>Chọn hạ tầng</option>
-                    <option value="Thiếu" {% if infrastructure == 'Thiếu' %} selected {% endif %}>Thiếu</option>
-                    <option value="Chưa hoàn thiện" {% if infrastructure == 'Chưa hoàn thiện' %} selected {% endif %}>Chưa hoàn thiện</option>
-                    <option value="Đầy đủ" {% if infrastructure == 'Đầy đủ' %} selected {% endif %}>Đầy đủ</option>
+                    <option value="" disabled {% if not infrastructure %}selected{% endif %}>Seclect</option>
+                    <option value="Thiếu" {% if infrastructure == 'Thiếu' %} selected {% endif %}>Infrastructure</option>
+                    <option value="Chưa hoàn thiện" {% if infrastructure == 'Chưa hoàn thiện' %} selected {% endif %}>Not completed</option>
+                    <option value="Đầy đủ" {% if infrastructure == 'Đầy đủ' %} selected {% endif %}>Complete</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="trend">Xu hướng</label>
+                <label for="trend">Trend</label>
                 <select name="trend" id="trend" required>
-                    <option value="" disabled {% if not trend %}selected{% endif %}>Chọn xu hướng</option>
-                    <option value="Ổn định" {% if trend == 'Ổn định' %} selected {% endif %}>Ổn định</option>
-                    <option value="Đang lên" {% if trend == 'Đang lên' %} selected {% endif %}>Đang lên</option>
-                    <option value="Đang xuống" {% if trend == 'Đang xuống' %} selected {% endif %}>Đang xuống</option>
+                    <option value="" disabled {% if not trend %}selected{% endif %}>Select</option>
+                    <option value="Ổn định" {% if trend == 'Ổn định' %} selected {% endif %}>Stable</option>
+                    <option value="Đang lên" {% if trend == 'Đang lên' %} selected {% endif %}>Increasing</option>
+                    <option value="Đang xuống" {% if trend == 'Đang xuống' %} selected {% endif %}>Decreasing</option>
                 </select>
             </div>
             <div class="form-group">
-                <label for="area">Diện tích (m²)</label>
+                <label for="area">Area (m²)</label>
                 <input type="number" name="area" id="area" value="{{ area }}" required>
             </div>
-            <button type="submit">Dự đoán giá</button>
+            <button type="submit">Price Prediction</button>
         </form>
 
         {% if prediction_text %}

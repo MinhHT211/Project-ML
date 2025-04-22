@@ -42,7 +42,7 @@ def predict():
 
         # Trả kết quả + giữ lại dữ liệu đã nhập
         return render_template('index.html',
-                               prediction_text=f'Dự đoán giá đất: {predicted_price:.2f} Tỷ VND',
+                               prediction_text=f'Land price prediction: {predicted_price:.2f} Billion VND',
                                location=location,
                                direction=direction,
                                amenities=amenities,
