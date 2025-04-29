@@ -9,7 +9,7 @@ model = pickle.load(open('LandPricePredictionModel.pkl', 'rb'))
 app = Flask(__name__)
 
 # Các cột đầu vào, đúng với lúc huấn luyện
-columns = ['Vị trí', 'Hướng', 'Tiện ích', 'Cở sở hạ tầng', 'Xu hướng', 'Diện tích']
+columns = ['Vị trí', 'Hướng', 'Tiện ích', 'Cơ sở hạ tầng', 'Xu hướng', 'Diện tích']
 
 @app.route('/')
 def index():

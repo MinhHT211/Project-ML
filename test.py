@@ -10,7 +10,7 @@ import pickle
 df = pd.read_csv('new_data.csv')
 
 # Xác định các cột đặc trưng (features) và cột mục tiêu (target)
-X = df[['Vị trí', 'Hướng', 'Tiện ích', 'Cở sở hạ tầng', 'Xu hướng', 'Diện tích']]
+X = df[['Vị trí', 'Hướng', 'Tiện ích', 'Cơ sở hạ tầng', 'Xu hướng', 'Diện tích']]
 y = df['Giá']
 
 # Tách dữ liệu thành tập huấn luyện và kiểm tra
@@ -19,7 +19,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Cấu hình OneHotEncoder với handle_unknown='ignore' để xử lý các giá trị chưa thấy trong dữ liệu kiểm tra
 column_transformer = ColumnTransformer(
     transformers=[
-        ('cat', OneHotEncoder(handle_unknown='ignore'), ['Vị trí', 'Hướng', 'Tiện ích', 'Cở sở hạ tầng', 'Xu hướng']),
+        ('cat', OneHotEncoder(handle_unknown='ignore'), ['Vị trí', 'Hướng', 'Tiện ích', 'Cơ sở hạ tầng', 'Xu hướng']),
         ('num', 'passthrough', ['Diện tích'])  # Không thay đổi cột 'Diện tích'
     ]
 )
