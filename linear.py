@@ -8,8 +8,6 @@ from sklearn.metrics import mean_squared_error, r2_score
 
 # 1. Load và xử lý dữ liệu
 df = pd.read_csv("new_data.csv")
-df.rename(columns={'Cở sở hạ tầng': 'Cơ sở hạ tầng'}, inplace=True)
-
 # 2. Mã hóa các cột phân loại với label map rõ ràng
 categorical_cols = ['Vị trí', 'Hướng', 'Tiện ích', 'Cơ sở hạ tầng', 'Xu hướng']
 encoders = {}
